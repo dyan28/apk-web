@@ -1,3 +1,5 @@
+# Flutter version: 3.13.9
+
 # 🧐 Run to generated code with buiild_runner and freezed 
 - You setup build environment for the first time.
 - You modified any code with the annotation `@freezed`.
