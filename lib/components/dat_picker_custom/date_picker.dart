@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:students/components/app_text_style.dart';
 
 import 'package:students/utils/app_colors.dart';
-import 'package:students/utils/app_text_style.dart';
 import 'package:students/utils/utils.dart';
 
 final yearProvider = StateProvider<String?>((ref) {
@@ -94,7 +94,7 @@ class _DatePickerCustomState extends ConsumerState<DatePickerCustom>
               widget.typePicker == TypePicker.month
                   ? 'Tháng ${widget.input[index]}'
                   : widget.input[index].toString(),
-              style: AppTextStyles.defaultMedium.copyWith(
+              style: AppTextStyle.medium.copyWith(
                 color: AppColors.black1.withOpacity(isSelect ? 1 : 0.5),
               ),
             ),

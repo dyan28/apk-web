@@ -32,12 +32,12 @@ class _SpaBannerMenuItemState extends State<SpaBannerMenuItem> {
         child: InkWell(
           onTap: widget.onTap,
           child: Container(
-            color: isHoover ? AppColors.backGround2 : Colors.transparent,
+            color: isHoover ? AppColors.purple2E1470 : Colors.transparent,
             padding: const EdgeInsets.all(10),
             alignment: Alignment.center,
             child: Text(
               widget.text,
-              style: AppTextStyle.largeNormal,
+              style: AppTextStyle.largeNormalLight,
             ),
           ),
         ),

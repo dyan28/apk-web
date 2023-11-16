@@ -24,5 +24,9 @@
     "submit": "Gửi",
     "reverse": "Đặt hẹn",
     "required_field_msg": "Đây là trường bắt buộc",
-    "booking_success": "Đặt lịch hẹn thành công"
+    "booking_success": "Đặt lịch hẹn thành công",
+    "Shopping": "Mua sắm",
+    "Delete": "Xoá",
+    "Edit": "Chỉnh sửa",
+    "Cancel": "Huỷ"
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:students/utils/app_text_style.dart';
+import 'package:students/components/app_text_style.dart';
+import 'package:students/generated/l10n.dart';
 import 'package:students/utils/utils.dart';
 
 class Dialogs with Utils {
@@ -193,8 +194,8 @@ class ShowSimpleDialog with Utils {
               onTapEdit();
             },
             child: Text(
-              'Chỉnh sửa',
-              style: AppTextStyles.defaultMedium.copyWith(
+              L10n.of(context).Edit,
+              style: AppTextStyle.medium.copyWith(
                 color: Colors.blue,
               ),
             ),
@@ -208,8 +209,8 @@ class ShowSimpleDialog with Utils {
               onTapDelete();
             },
             child: Text(
-              'Xoá',
-              style: AppTextStyles.defaultMedium,
+              L10n.of(context).Delete,
+              style: AppTextStyle.medium,
             ),
           ),
           CupertinoActionSheetAction(
@@ -221,8 +222,8 @@ class ShowSimpleDialog with Utils {
               Navigator.pop(context);
             },
             child: Text(
-              'Huỷ',
-              style: AppTextStyles.defaultMedium.copyWith(
+              L10n.of(context).Cancel,
+              style: AppTextStyle.medium.copyWith(
                 color: Colors.red,
               ),
             ),

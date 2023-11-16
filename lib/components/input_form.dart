@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students/utils/app_text_style.dart';
+import 'package:students/components/app_text_style.dart';
 
 enum RequiredType {
   required,
@@ -42,9 +42,7 @@ class FormInputField extends StatelessWidget {
           Text(
             label ?? '',
             style: labelStyle ??
-                AppTextStyles.defaultBold.copyWith(
-                  fontSize: AppTextStyles.fontSize_14,
-                ),
+                AppTextStyle.regular,
           ),
           const SizedBox(
             width: 10,
@@ -55,9 +53,7 @@ class FormInputField extends StatelessWidget {
     return Text(
       label ?? '',
       style: labelStyle ??
-          AppTextStyles.defaultBold.copyWith(
-            fontSize: AppTextStyles.fontSize_14,
-          ),
+          AppTextStyle.regular,
     );
   }
 }

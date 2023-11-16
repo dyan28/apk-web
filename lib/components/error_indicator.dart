@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:students/components/app_text_style.dart';
 import 'package:students/utils/app_colors.dart';
-import 'package:students/utils/app_text_style.dart';
 
 class CommonErrorIndicator extends StatelessWidget {
   const CommonErrorIndicator({
@@ -19,7 +19,7 @@ class CommonErrorIndicator extends StatelessWidget {
         children: [
           Text(
             message ?? 'Errors',
-            style: AppTextStyles.defaulLato,
+            style: AppTextStyle.regular,
           ),
           onTapRetry != null
               ? ElevatedButton(
@@ -31,7 +31,7 @@ class CommonErrorIndicator extends StatelessWidget {
                   onPressed: onTapRetry,
                   child: Text(
                     'Retry',
-                    style: AppTextStyles.defaulLato.copyWith(
+                    style: AppTextStyle.regular.copyWith(
                       color: Colors.white,
                     ),
                   ),

@@ -17,6 +17,8 @@ class AppTextStyle {
     fontSize: 16,
   );
 
+
+
   static const large = TextStyle(
     fontFamily: FontFamily.playfairDisplayBold,
     color: Colors.black,
@@ -44,10 +46,35 @@ class AppTextStyle {
     fontSize: 32,
   );
 
+
+
   static const superLarge = TextStyle(
     fontFamily: FontFamily.playfairDisplay,
     color: Colors.black,
     fontWeight: FontWeight.normal,
     fontSize: 64,
+  );
+
+  // light theme
+
+  static const extraLargeLight = TextStyle(
+    fontFamily: FontFamily.playfairDisplay,
+    color: Colors.white,
+    fontWeight: FontWeight.normal,
+    fontSize: 32,
+  );
+
+  static const largeNormalLight = TextStyle(
+    fontFamily: FontFamily.playfairDisplay,
+    color: Colors.white,
+    fontWeight: FontWeight.normal,
+    fontSize: 20,
+  );
+
+  static const mediumLight = TextStyle(
+    fontFamily: FontFamily.playfairDisplay,
+    color: Colors.white,
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
   );
 }

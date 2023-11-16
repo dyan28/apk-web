@@ -24,5 +24,9 @@
     "submit": "Submit",
     "reverse": "Reverse",
     "required_field_msg": "This is a required field",
-    "booking_success": "Booking success"
+    "booking_success": "Booking success",
+    "Shopping": "Shopping",
+    "Delete": "Delete",
+    "Edit": "Edit",
+    "Cancel": "Cancel"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:students/components/app_text_style.dart';
 import 'package:students/utils/app_colors.dart';
-import 'package:students/utils/app_text_style.dart';
 
 class TextFormFieldCustom extends StatelessWidget {
   const TextFormFieldCustom({
@@ -29,10 +29,9 @@ class TextFormFieldCustom extends StatelessWidget {
       controller: controller,
       textInputAction: textInputAction,
       keyboardType: keyboardType,
-      style: AppTextStyles.defaultMedium.copyWith(
+      style: AppTextStyle.regular.copyWith(
         color: AppColors.black1,
         fontWeight: FontWeight.w500,
-        fontSize: AppTextStyles.fontSize_13,
       ),
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(

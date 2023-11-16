@@ -35,71 +35,60 @@ class SpaBannerWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SpaBannerMenuItem(
+                    text: L10n.of(context).Home,
+                    onTap: () {
+                      CommonNavigator.go(context,
+                          routeName: Routes.dashboardScreen);
+                    },
+                  ),
+                  SpaBannerMenuItem(
+                      text: L10n.of(context).Services,
+                      onTap: () {
+                        ensureVisible(serviceKey.currentContext);
+                      }),
+                  SpaBannerMenuItem(
+                      text: L10n.of(context).blog,
+                      onTap: () {
+                        CommonNavigator.go(context,
+                            routeName: Routes.blogScreen);
+                      }),
                   Expanded(
-                    flex: 3,
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      alignment: Alignment.centerLeft,
                       child: Image.asset(
-                        Assets.images.icSpaLogo.path,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 7,
-                    child: Row(
-                      children: [
-                        SpaBannerMenuItem(
-                          text: L10n.of(context).Home,
-                          onTap: () {
-                            CommonNavigator.go(context, routeName: Routes.dashboardScreen);
-                          },
-                        ),
-                        SpaBannerMenuItem(
-                            text: L10n.of(context).Services,
-                            onTap: () {
-                              ensureVisible(serviceKey.currentContext);
-                            }),
-                        SpaBannerMenuItem(
-                            text: L10n.of(context).blog,
-                            onTap: () {
-                              CommonNavigator.go(context, routeName: Routes.blogScreen);
-                            }),
-                        SpaBannerMenuItem(
-                            text: L10n.of(context).About,
-                            onTap: () {
-                              ensureVisible(aboutKey.currentContext);
-                            }),
-                        SpaBannerMenuItem(
-                            text: L10n.of(context).Contact,
-                            onTap: () {
-                              ensureVisible(contactKey.currentContext);
-                            }),
-                      ],
-                    ),
-                  ),
+                    Assets.images.spaLogoTransparent.path,
+                    color: Colors.white,
+                  )),
+                  SpaBannerMenuItem(
+                      text: L10n.of(context).About,
+                      onTap: () {
+                        ensureVisible(aboutKey.currentContext);
+                      }),
+                  SpaBannerMenuItem(
+                      text: L10n.of(context).Contact,
+                      onTap: () {
+                        ensureVisible(contactKey.currentContext);
+                      }),
+                  SpaBannerMenuItem(
+                      text: L10n.of(context).Shopping, onTap: () {}),
                 ],
               ),
               const SizedBox(height: 40),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      L10n.of(context).banner_title,
-                      style: AppTextStyle.extraLarge,
-                    ),
-                    const SizedBox(height: 34),
-                    Text(
-                      L10n.of(context).banner_content,
-                      style: AppTextStyle.medium,
-                    ),
-                  ],
-                ),
-              )
+              Column(
+                children: [
+                  Text(
+                    L10n.of(context).banner_title,
+                    style: AppTextStyle.extraLargeLight,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 34),
+                  Text(
+                    L10n.of(context).banner_content,
+                    style: AppTextStyle.mediumLight,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ],
           ),
         ),
