@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:students/generated/fonts.gen.dart';
 
@@ -16,8 +15,6 @@ class AppTextStyle {
     fontWeight: FontWeight.w500,
     fontSize: 16,
   );
-
-
 
   static const large = TextStyle(
     fontFamily: FontFamily.playfairDisplayBold,
@@ -46,8 +43,6 @@ class AppTextStyle {
     fontSize: 32,
   );
 
-
-
   static const superLarge = TextStyle(
     fontFamily: FontFamily.playfairDisplay,
     color: Colors.black,
@@ -56,6 +51,13 @@ class AppTextStyle {
   );
 
   // light theme
+
+  static const regularLight = TextStyle(
+    fontFamily: FontFamily.playfairDisplay,
+    color: Colors.white,
+    fontWeight: FontWeight.w300,
+    fontSize: 13,
+  );
 
   static const extraLargeLight = TextStyle(
     fontFamily: FontFamily.playfairDisplay,

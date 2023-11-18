@@ -27,6 +27,7 @@ class SpaBannerWidget extends StatelessWidget {
         Image.asset(
           Assets.images.bannerImage.path,
           width: double.infinity,
+          height: MediaQuery.of(context).size.height*0.5,
           fit: BoxFit.cover,
         ),
         Padding(

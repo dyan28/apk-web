@@ -34,4 +34,6 @@ class AppColors {
   static const Color melonColor = Color(0xFFFA5075);
 
   static const titleHighlightColor = Color(0xFF7D2410);
+  static const successColor = Color(0xFF4BB543);
+  static const errorColor = Color(0xFFff3333);
 }

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:students/components/reverse_button.dart';
 import 'package:students/screens/dashboard/widgets/about_us_widget.dart';
 import 'package:students/screens/dashboard/widgets/contact_info_widget.dart';
+import 'package:students/screens/dashboard/widgets/open_hour_widget.dart';
 import 'package:students/screens/dashboard/widgets/our_service_widget.dart';
 import 'package:students/screens/dashboard/widgets/spa_banner.dart';
 import 'package:students/utils/app_colors.dart';
@@ -63,6 +64,7 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
             AboutUsWidget(
               aboutKey: aboutKey,
             ),
+            const OpenHourWidget(),
             ContactInfoWidget(
               contactKey: contactKey,
             ),

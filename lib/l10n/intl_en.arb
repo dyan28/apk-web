@@ -28,5 +28,7 @@
     "Shopping": "Shopping",
     "Delete": "Delete",
     "Edit": "Edit",
-    "Cancel": "Cancel"
+    "Cancel": "Cancel",
+    "Open": "Open",
+    "Close": "Close"
 }

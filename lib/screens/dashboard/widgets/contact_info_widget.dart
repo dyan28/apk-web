@@ -4,7 +4,6 @@ import 'package:students/components/app_text_style.dart';
 import 'package:students/generated/assets.gen.dart';
 import 'package:students/generated/l10n.dart';
 import 'package:students/screens/dashboard/widgets/follow_us_widget.dart';
-import 'package:students/utils/app_colors.dart';
 import 'package:students/utils/app_constant.dart';
 
 class ContactInfoWidget extends StatelessWidget {
@@ -16,33 +15,41 @@ class ContactInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: contactKey,
-      color: AppColors.backGround2,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            Assets.images.bottomBackgroundImage.path,
+          ),
+        ),
+      ),
       padding: const EdgeInsets.symmetric(vertical: 20),
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20).copyWith(bottom: 0),
       child: Row(
         children: [
           const Spacer(),
           Expanded(
             flex: 3,
-            child: Column(
+            child: Row(
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _contact(context),
-                    _hour(context),
-                  ],
+                Expanded(
+                  child: Image.asset(
+                    Assets.images.spaLogoTransparent.path,
+                    color: Colors.white,
+                  ),
                 ),
-                const SizedBox(height: 30),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    _map(context),
-                    const Expanded(child: FollowUsWidget()),
-                  ],
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    children: [
+                      _contact(context),
+                      const FollowUsWidget(),
+                      _map(context),
+                      const SizedBox(height: 30),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 30),
               ],
             ),
           ),
@@ -53,19 +60,17 @@ class ContactInfoWidget extends StatelessWidget {
   }
 
   Widget _map(BuildContext context) {
-    return Expanded(
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          onTap: () {
-            js.context.callMethod('open', [AppConstants.locationUrl]);
-          },
-          child: Container(
-            alignment: Alignment.centerLeft,
-            child: Image.asset(
-              Assets.images.spaLocation.path,
-              height: MediaQuery.of(context).size.height * 0.25,
-            ),
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          js.context.callMethod('open', [AppConstants.locationUrl]);
+        },
+        child: Container(
+          alignment: Alignment.centerLeft,
+          child: Image.asset(
+            Assets.images.spaLocation.path,
+            height: MediaQuery.of(context).size.height * 0.25,
           ),
         ),
       ),
@@ -73,22 +78,27 @@ class ContactInfoWidget extends StatelessWidget {
   }
 
   Widget _contact(BuildContext context) {
-    return Expanded(
-        child: Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           L10n.of(context).Contact,
-          style: AppTextStyle.large,
+          style: AppTextStyle.largeNormalLight,
         ),
         _contactRow(
             text: 'Ngõ 44 P. Nguyễn Cơ Thạch, Mỹ Đình, Từ Liêm, Hà Nội',
-            icon: const Icon(Icons.location_on)),
+            icon: const Icon(Icons.location_on, color: Colors.white)),
         _contactRow(
-            text: 'info.example@gmail.com', icon: const Icon(Icons.email)),
-        _contactRow(text: '+0923793273', icon: const Icon(Icons.phone)),
+            text: AppConstants.address,
+            icon: const Icon(Icons.email, color: Colors.white)),
+        _contactRow(
+            text: AppConstants.phoneNumber,
+            icon: const Icon(
+              Icons.phone,
+              color: Colors.white,
+            )),
       ],
-    ));
+    );
   }
 
   Widget _contactRow({required String text, required Widget icon}) {
@@ -100,45 +110,8 @@ class ContactInfoWidget extends StatelessWidget {
           const SizedBox(width: 10),
           Text(
             text,
-            style: AppTextStyle.regular,
+            style: AppTextStyle.regularLight,
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget _hour(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            L10n.of(context).open_hour,
-            style: AppTextStyle.large,
-          ),
-          _hourRow(title: L10n.of(context).mon_to_fri, content: '09 am- 6pm'),
-          _hourRow(title: L10n.of(context).sat, content: '10 am- 7pm'),
-          _hourRow(title: L10n.of(context).sunday, content: '10 am- 7pm'),
-        ],
-      ),
-    );
-  }
-
-  Widget _hourRow({required String title, required String content}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: [
-          Expanded(
-              child: Text(
-            '$title - ',
-            style: AppTextStyle.regular,
-          )),
-          Expanded(
-              child: Text(
-            content,
-            style: AppTextStyle.regular,
-          )),
         ],
       ),
     );

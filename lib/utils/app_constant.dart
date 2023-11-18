@@ -1,5 +1,6 @@
 import 'package:students/models/about_us_model/about_us_model.dart';
 import 'package:students/models/blog_model/blog_model.dart';
+import 'package:students/models/open_hour_model/open_hour_model.dart';
 
 class AppConstants {
   static const String fbUrl = 'https://www.facebook.com/amandestinations';
@@ -11,6 +12,8 @@ class AppConstants {
   static const String videoUrl = 'https://youtu.be/rMO_mCbNgQo';
   static const String locationUrl =
       'https://www.google.com/maps/place/Iris+Garden+Resident/@21.0320327,105.7601469,17z/data=!3m1!4b1!4m6!3m5!1s0x313455f7865aef31:0x8194caab196325c8!8m2!3d21.0320327!4d105.7601469!16s%2Fg%2F11qnstd_yq?entry=ttu';
+  static  const String phoneNumber = '+0923793273';
+  static  const String address = 'info.example@gmail.com';
 
   //dummy data
   static const List<AboutUsModel> dummyAboutModel = <AboutUsModel>[
@@ -79,4 +82,56 @@ class AppConstants {
     ),
   ];
 
+
+  static const List<OpenHourModel> dummyOpenHour = <OpenHourModel>[
+    OpenHourModel(
+      dayOfWeek: 1,
+      startHour: 9,
+      startMinute: 0,
+      endHour: 18,
+      endMinute: 0
+    ),
+    OpenHourModel(
+        dayOfWeek: 2,
+        startHour: 9,
+        startMinute: 0,
+        endHour: 18,
+        endMinute: 0
+    ),
+    OpenHourModel(
+        dayOfWeek: 3,
+        startHour: 9,
+        startMinute: 0,
+        endHour: 18,
+        endMinute: 0
+    ),
+    OpenHourModel(
+        dayOfWeek: 4,
+        startHour: 9,
+        startMinute: 0,
+        endHour: 18,
+        endMinute: 0
+    ),
+    OpenHourModel(
+        dayOfWeek: 5,
+        startHour: 9,
+        startMinute: 0,
+        endHour: 18,
+        endMinute: 0
+    ),
+    OpenHourModel(
+        dayOfWeek: 6,
+        startHour: 10,
+        startMinute: 0,
+        endHour: 19,
+        endMinute: 0
+    ),
+    OpenHourModel(
+        dayOfWeek: 7,
+        startHour: 10,
+        startMinute: 0,
+        endHour: 19,
+        endMinute: 0
+    ),
+  ];
 }
