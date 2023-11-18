@@ -1,6 +1,7 @@
 import 'package:students/models/about_us_model/about_us_model.dart';
 import 'package:students/models/blog_model/blog_model.dart';
 import 'package:students/models/open_hour_model/open_hour_model.dart';
+import 'package:students/models/shopping_item_model/shopping_item_model.dart';
 
 class AppConstants {
   static const String fbUrl = 'https://www.facebook.com/amandestinations';
@@ -132,6 +133,49 @@ class AppConstants {
         startMinute: 0,
         endHour: 19,
         endMinute: 0
+    ),
+  ];
+
+  static const List<ShoppingItemModel> dummyShoppingItemModel = <ShoppingItemModel>[
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/c2/38/4a/c73e579e5cdf42e860ce6c2314735a85.png.webp',
+      title: 'Sữa rửa mặt',
+      price: 200000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/ab/24/bf/721f33b77f5c9819b15b8998d7e4e12b.jpg.webp',
+      title: 'Sữa rửa mặt 2',
+      price: 210000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/b0/80/2f/8e155807a706696d69c1f5dec2ad060b.png.webp',
+      title: 'Sữa rửa mặt 3',
+      price: 300000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/ac/c6/cb/37303319856d25885bb1a819edf8044a.jpg.webp',
+      title: 'Sữa rửa mặt 4',
+      price: 440000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/7c/9c/a5/4bd1312c3bcdbe0475df20cffee3c5a6.jpg.webp',
+      title: 'Sữa rửa mặt 5',
+      price: 340000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/f8/65/f1/3c515c8213fddc85867b8f7f64f43649.jpg.webp',
+      title: 'Sữa rửa mặt 6',
+      price: 240000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/ba/a9/7e/754277a603cc96b4cb88b65619b0ec86.jpg.webp',
+      title: 'Sữa rửa mặt 7',
+      price: 420000,
+    ),
+    ShoppingItemModel(
+      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/a6/bf/f0/012a2bc96689f9e3b3d0344f1009eed5.jpg.webp',
+      title: 'Sữa rửa mặt 8',
+      price: 450000,
     ),
   ];
 }

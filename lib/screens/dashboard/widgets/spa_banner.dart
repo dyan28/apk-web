@@ -59,7 +59,7 @@ class SpaBannerWidget extends StatelessWidget {
                       child: Image.asset(
                     Assets.images.spaLogoTransparent.path,
                     color: Colors.white,
-                  )),
+                  ),),
                   SpaBannerMenuItem(
                       text: L10n.of(context).About,
                       onTap: () {
@@ -71,7 +71,9 @@ class SpaBannerWidget extends StatelessWidget {
                         ensureVisible(contactKey.currentContext);
                       }),
                   SpaBannerMenuItem(
-                      text: L10n.of(context).Shopping, onTap: () {}),
+                      text: L10n.of(context).Shopping, onTap: () {
+                        CommonNavigator.go(context, routeName: Routes.shoppingScreen);
+                  }),
                 ],
               ),
               const SizedBox(height: 40),
