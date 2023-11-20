@@ -10,12 +10,14 @@ class CommonButton extends StatelessWidget {
     this.height = 44,
     this.width,
     this.bgColor = AppColors.primaryBtn,
+    this.titleTextStyle,
   });
   final String? label;
   final VoidCallback? onTap;
   final Color bgColor;
   final double height;
   final double? width;
+  final TextStyle? titleTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class CommonButton extends StatelessWidget {
           onPressed: onTap,
           child: Text(
             label ?? '',
-            style: AppTextStyle.medium.copyWith(color: AppColors.white),
+            style: titleTextStyle ?? AppTextStyle.medium.copyWith(color: AppColors.white),
           ),
         ),
       ),

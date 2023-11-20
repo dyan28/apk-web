@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:students/components/reverse_button.dart';
 import 'package:students/screens/dashboard/widgets/about_us_widget.dart';
 import 'package:students/screens/dashboard/widgets/contact_info_widget.dart';
 import 'package:students/screens/dashboard/widgets/open_hour_widget.dart';
@@ -47,7 +46,6 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backGround,
-      floatingActionButton: const ReverseButton(),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
