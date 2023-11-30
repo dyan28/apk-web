@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:students/components/reverse_button.dart';
 import 'package:students/generated/assets.gen.dart';
 import 'package:students/screens/dashboard/widgets/common_header.dart';
 import 'package:students/screens/dashboard/widgets/contact_info_widget.dart';
@@ -28,9 +29,7 @@ class _CommonScaffoldState extends State<CommonScaffold> {
         backgroundColor: AppColors.backGround,
         body: Column(
           children: [
-            CommonHeader(
-              haveReverseButton: widget.haveReverseButton,
-            ),
+            const CommonHeader(),
             Expanded(
               child: SingleChildScrollView(
                 controller: widget.scrollController,
@@ -62,6 +61,8 @@ class _CommonScaffoldState extends State<CommonScaffold> {
             ),
           ],
         ),
+        floatingActionButton:
+            widget.haveReverseButton ? const ReverseButton() : null,
       ),
     );
   }
