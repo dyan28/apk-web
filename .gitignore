@@ -56,3 +56,4 @@ Gemfile.lock
 .vscode/
 *.sh
 .metadata
+/lib/generated/fonts.gen.dart
