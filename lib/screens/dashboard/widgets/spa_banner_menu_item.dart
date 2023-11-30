@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:students/components/app_text_style.dart';
-import 'package:students/utils/app_colors.dart';
 
 class SpaBannerMenuItem extends StatefulWidget {
-  const SpaBannerMenuItem({super.key, required this.text, required this.onTap,});
+  const SpaBannerMenuItem({
+    super.key,
+    required this.text,
+    required this.onTap,
+  });
 
   final String text;
   final VoidCallback onTap;
@@ -32,8 +35,13 @@ class _SpaBannerMenuItemState extends State<SpaBannerMenuItem> {
         child: InkWell(
           onTap: widget.onTap,
           child: Container(
-            color: isHoover ? AppColors.purple2E1470 : Colors.transparent,
-            padding: const EdgeInsets.all(10),
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+                color: isHoover
+                    ? Colors.white.withOpacity(0.3)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(10)),
             alignment: Alignment.center,
             child: Text(
               widget.text,

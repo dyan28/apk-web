@@ -6,6 +6,7 @@ import 'package:students/components/common_navigator.dart';
 import 'package:students/generated/l10n.dart';
 import 'package:students/utils/app_colors.dart';
 
+// TODO(linhlc): make this button circle and float even scroll
 class ReverseButton extends StatelessWidget {
   const ReverseButton({super.key});
 
@@ -15,7 +16,7 @@ class ReverseButton extends StatelessWidget {
       bgColor: AppColors.backGround2,
       label: L10n.of(context).reverse,
       width: 150,
-        titleTextStyle: AppTextStyle.medium.copyWith(color: Colors.black),
+      titleTextStyle: AppTextStyle.medium.copyWith(color: Colors.black),
       onTap: () {
         CommonNavigator.go(context, routeName: Routes.bookingScreen);
       },

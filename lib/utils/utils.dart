@@ -1,10 +1,10 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:students/common/core/constants.dart';
-import 'dart:ui' as ui;
 
 class Util {
   Util._();
@@ -15,20 +15,7 @@ class Util {
   }
 
   static List<int> listMonth() {
-    const month = [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-    ];
+    const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     return month;
   }
 
@@ -115,5 +102,11 @@ mixin Utils {
 
   void unFocusScope(BuildContext context) {
     FocusScope.of(context).requestFocus(FocusNode());
+  }
+
+  bool isSmallLayout(BuildContext context) {
+    // likes phone layout
+    final shortestSide = MediaQuery.of(context).size.shortestSide;
+    return shortestSide < 600;
   }
 }

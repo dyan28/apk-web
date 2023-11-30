@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:students/common/core/routes.dart';
 import 'package:students/components/app_text_style.dart';
-import 'package:students/components/common_navigator.dart';
 import 'package:students/components/reverse_button.dart';
 import 'package:students/generated/assets.gen.dart';
 import 'package:students/generated/l10n.dart';
-import 'package:students/screens/dashboard/widgets/spa_banner_menu_item.dart';
+import 'package:students/screens/dashboard/widgets/menu_bar_view.dart';
+import 'package:students/utils/utils.dart';
 
-class SpaBannerWidget extends StatelessWidget {
+class SpaBannerWidget extends StatelessWidget with Utils {
   const SpaBannerWidget({
     super.key,
     required this.scrollController,
@@ -37,52 +36,15 @@ class SpaBannerWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    SpaBannerMenuItem(
-                      text: L10n.of(context).Home,
-                      onTap: () {
-                        CommonNavigator.go(context,
-                            routeName: Routes.dashboardScreen);
-                      },
+              isSmallLayout(context)
+                  // TODO(linhlc): change layout case small size likes browser on mobile
+                  ? const SizedBox()
+                  : MenuBarWebView(
+                      aboutKey: aboutKey,
+                      serviceKey: serviceKey,
+                      scrollController: scrollController,
+                      contactKey: contactKey,
                     ),
-                    SpaBannerMenuItem(
-                        text: L10n.of(context).Services,
-                        onTap: () {
-                          ensureVisible(serviceKey.currentContext);
-                        }),
-                    SpaBannerMenuItem(
-                        text: L10n.of(context).blog,
-                        onTap: () {
-                          CommonNavigator.go(context,
-                              routeName: Routes.blogScreen);
-                        }),
-                    Expanded(
-                      child: Image.asset(
-                        Assets.images.spaLogoTransparent.path,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SpaBannerMenuItem(
-                        text: L10n.of(context).About,
-                        onTap: () {
-                          ensureVisible(aboutKey.currentContext);
-                        }),
-                    SpaBannerMenuItem(
-                        text: L10n.of(context).Contact,
-                        onTap: () {
-                          ensureVisible(contactKey.currentContext);
-                        }),
-                    SpaBannerMenuItem(
-                        text: L10n.of(context).Shopping,
-                        onTap: () {
-                          CommonNavigator.go(context,
-                              routeName: Routes.shoppingScreen);
-                        }),
-                  ],
-                ),
-              ),
               const SizedBox(height: 40),
               Expanded(
                 child: Column(
@@ -109,23 +71,10 @@ class SpaBannerWidget extends StatelessWidget {
                   ],
                 ),
               ),
-
             ],
           ),
         ),
       ],
-    );
-  }
-
-  void ensureVisible(BuildContext? context) {
-    if (context == null) {
-      return;
-    }
-
-    Scrollable.ensureVisible(
-      context,
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
     );
   }
 }
