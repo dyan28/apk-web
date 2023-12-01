@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:students/components/app_text_style.dart';
-import 'package:students/components/reverse_button.dart';
 import 'package:students/generated/assets.gen.dart';
 import 'package:students/generated/l10n.dart';
 import 'package:students/screens/dashboard/widgets/menu_bar_view.dart';
@@ -46,34 +45,44 @@ class SpaBannerWidget extends StatelessWidget with Utils {
                       contactKey: contactKey,
                     ),
               const SizedBox(height: 40),
-              Expanded(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          L10n.of(context).banner_title,
-                          style: AppTextStyle.extraLargeLight,
-                          textAlign: TextAlign.center,
-                        ),
-                        const ReverseButton(),
-                      ],
-                    ),
-                    const SizedBox(height: 34),
-                    Expanded(
-                      child: Text(
-                        L10n.of(context).banner_content,
-                        style: AppTextStyle.mediumLight,
-                        textAlign: TextAlign.center,
+              isSmallLayout(context)
+                  ? const SizedBox()
+                  : Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            L10n.of(context).banner_title,
+                            style: AppTextStyle.extraLargeLight,
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 34),
+                          Expanded(
+                            child: Text(
+                              L10n.of(context).banner_content,
+                              style: AppTextStyle.mediumLight,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
+        isSmallLayout(context)
+            ? Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            : const SizedBox()
       ],
     );
   }

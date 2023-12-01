@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:students/common/core/routes.dart';
 import 'package:students/components/common_hoover_button.dart';
 import 'package:students/components/common_navigator.dart';
-import 'package:students/components/reverse_button.dart';
 import 'package:students/generated/assets.gen.dart';
 
 class CommonHeader extends StatelessWidget {
   const CommonHeader({
     super.key,
-    this.haveReverseButton = true,
   });
-
-  final bool haveReverseButton;
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +42,7 @@ class CommonHeader extends StatelessWidget {
               ),
             ),
           ),
-          haveReverseButton
-              ? const Expanded(
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ReverseButton(),
-                  ],
-                ))
-              : const Spacer(),
+          const Spacer(),
         ],
       ),
     );
