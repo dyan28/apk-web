@@ -3,6 +3,7 @@ import 'package:students/common/core/routes.dart';
 import 'package:students/components/common_hoover_button.dart';
 import 'package:students/components/common_navigator.dart';
 import 'package:students/generated/assets.gen.dart';
+import 'package:students/screens/dashboard/widgets/logo_view.dart';
 
 class CommonHeader extends StatelessWidget {
   const CommonHeader({
@@ -34,11 +35,7 @@ class CommonHeader extends StatelessWidget {
                   CommonNavigator.go(context,
                       routeName: Routes.dashboardScreen);
                 },
-                child: Image.asset(
-                  Assets.images.spaLogoTransparent.path,
-                  color: Colors.white,
-                  height: 150,
-                ),
+                child: const LogoView(),
               ),
             ),
           ),

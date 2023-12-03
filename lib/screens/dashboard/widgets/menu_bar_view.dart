@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:students/common/core/routes.dart';
 import 'package:students/components/common_navigator.dart';
-import 'package:students/generated/assets.gen.dart';
 import 'package:students/generated/l10n.dart';
+import 'package:students/screens/dashboard/widgets/logo_view.dart';
 import 'package:students/screens/dashboard/widgets/spa_banner_menu_item.dart';
 
 class MenuBarWebView extends StatelessWidget {
@@ -52,12 +52,12 @@ class MenuBarWebView extends StatelessWidget {
               onTap: () {
                 CommonNavigator.go(context, routeName: Routes.blogScreen);
               }),
-          Expanded(
-            child: Image.asset(
-              Assets.images.spaLogoTransparent.path,
-              color: Colors.white,
-            ),
-          ),
+          const LogoView(),
+          SpaBannerMenuItem(
+              text: L10n.of(context).Shopping,
+              onTap: () {
+                CommonNavigator.go(context, routeName: Routes.shoppingScreen);
+              }),
           SpaBannerMenuItem(
               text: L10n.of(context).About,
               onTap: () {
@@ -67,11 +67,6 @@ class MenuBarWebView extends StatelessWidget {
               text: L10n.of(context).Contact,
               onTap: () {
                 ensureVisible(contactKey.currentContext);
-              }),
-          SpaBannerMenuItem(
-              text: L10n.of(context).Shopping,
-              onTap: () {
-                CommonNavigator.go(context, routeName: Routes.shoppingScreen);
               }),
         ],
       ),

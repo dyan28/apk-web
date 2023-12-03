@@ -7,9 +7,9 @@ import 'package:students/generated/l10n.dart';
 class CommonDrawer extends StatelessWidget {
   const CommonDrawer({
     super.key,
-     this.serviceKey,
-     this.aboutKey,
-     this.contactKey,
+    this.serviceKey,
+    this.aboutKey,
+    this.contactKey,
   });
 
   final GlobalKey? serviceKey;

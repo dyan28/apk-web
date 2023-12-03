@@ -46,6 +46,7 @@ class _SpaBannerMenuItemState extends State<SpaBannerMenuItem> {
             child: Text(
               widget.text,
               style: AppTextStyle.largeNormalLight,
+              textAlign: TextAlign.center,
             ),
           ),
         ),

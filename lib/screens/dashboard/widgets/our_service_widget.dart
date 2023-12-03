@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:students/components/app_text_style.dart';
 import 'package:students/generated/assets.gen.dart';
 import 'package:students/generated/l10n.dart';
@@ -7,7 +8,10 @@ import 'package:students/models/service_model/service_model.dart';
 import 'package:students/screens/dashboard/widgets/carousel_item.dart';
 
 class OurServiceWidget extends StatefulWidget {
-  const OurServiceWidget({super.key, required this.serviceKey,});
+  const OurServiceWidget({
+    super.key,
+    required this.serviceKey,
+  });
 
   final GlobalKey serviceKey;
 
@@ -50,18 +54,6 @@ class _OurServiceWidgetState extends State<OurServiceWidget> {
       price: 30000,
       duration: 20,
     ),
-    ServiceModel(
-      image: Assets.dummyImage.spa6.path,
-      name: 'Spa 1',
-      price: 30000,
-      duration: 20,
-    ),
-    ServiceModel(
-      image: Assets.dummyImage.spa8.path,
-      name: 'Spa 1',
-      price: 30000,
-      duration: 20,
-    ),
   ];
 
   @override
@@ -77,9 +69,15 @@ class _OurServiceWidgetState extends State<OurServiceWidget> {
       padding: const EdgeInsets.symmetric(vertical: 60),
       child: Column(
         children: [
-          Text(
-            L10n.of(context).Services,
-            style: AppTextStyle.extraLarge,
+          RichText(
+            text: TextSpan(style: AppTextStyle.extraLarge, children: [
+              TextSpan(text: L10n.of(context).Services),
+              TextSpan(
+                text: '\nTrải nghiệm bất tận tại Ngọt',
+                style: GoogleFonts.allison(),
+              )
+            ]),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 60),
           CarouselSlider.builder(
@@ -95,7 +93,7 @@ class _OurServiceWidgetState extends State<OurServiceWidget> {
             options: CarouselOptions(
               height: carouselHeight,
               autoPlay: true,
-              aspectRatio: 800/600,
+              aspectRatio: 800 / 600,
               viewportFraction: 0.5,
             ),
           ),

@@ -31,12 +31,12 @@ class SpaBannerWidget extends StatelessWidget with Utils {
         ),
         Container(
           height: MediaQuery.of(context).size.height * 0.6,
-          padding: const EdgeInsets.symmetric(vertical: 56, horizontal: 120),
+          padding: EdgeInsets.symmetric(
+              vertical: 56, horizontal: screenWidth(context) * 0.03),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               isSmallLayout(context)
-                  // TODO(linhlc): change layout case small size likes browser on mobile
                   ? const SizedBox()
                   : MenuBarWebView(
                       aboutKey: aboutKey,
