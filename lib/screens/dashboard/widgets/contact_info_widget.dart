@@ -4,8 +4,9 @@ import 'package:students/generated/assets.gen.dart';
 import 'package:students/screens/dashboard/widgets/follow_us_widget.dart';
 import 'package:students/screens/dashboard/widgets/logo_view.dart';
 import 'package:students/utils/app_constant.dart';
+import 'package:students/utils/utils.dart';
 
-class ContactInfoWidget extends StatelessWidget {
+class ContactInfoWidget extends StatelessWidget with Utils {
   const ContactInfoWidget({super.key, this.contactKey});
 
   final GlobalKey? contactKey;
@@ -24,30 +25,30 @@ class ContactInfoWidget extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.symmetric(vertical: 20),
-      margin: const EdgeInsets.symmetric(vertical: 20).copyWith(bottom: 0),
       child: Column(
         children: [
           Row(
             children: [
-              const Spacer(),
-              Expanded(
-                flex: 3,
-                child: Row(
-                  children: [
-                    const LogoView(),
-                    Expanded(
-                      flex: 3,
-                      child: Column(
-                        children: [
-                          _contact(context),
-                          const FollowUsWidget(),
-                        ],
+              SizedBox(
+                width: isSmallLayout(context) ? 30 : screenWidth(context) * 0.2,
+              ),
+              const Flexible(child: FittedBox(child: LogoView())),
+              Flexible(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: _contact(context),
                       ),
-                    ),
-                  ],
+                      const FollowUsWidget(),
+                    ],
+                  ),
                 ),
               ),
-              const Spacer(),
             ],
           ),
         ],
@@ -66,7 +67,7 @@ class ContactInfoWidget extends StatelessWidget {
             text: AppConstants.address,
             icon: const Icon(Icons.email, color: Colors.white)),
         _contactRow(
-            text: AppConstants.phoneNumber,
+            text: 'Hotline: ${AppConstants.phoneNumber}',
             icon: const Icon(
               Icons.phone,
               color: Colors.white,

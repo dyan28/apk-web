@@ -6,6 +6,7 @@ import 'package:students/generated/assets.gen.dart';
 import 'package:students/generated/l10n.dart';
 import 'package:students/models/service_model/service_model.dart';
 import 'package:students/screens/dashboard/widgets/carousel_item.dart';
+import 'package:students/utils/utils.dart';
 
 class OurServiceWidget extends StatefulWidget {
   const OurServiceWidget({
@@ -19,7 +20,7 @@ class OurServiceWidget extends StatefulWidget {
   State<OurServiceWidget> createState() => _OurServiceWidgetState();
 }
 
-class _OurServiceWidgetState extends State<OurServiceWidget> {
+class _OurServiceWidgetState extends State<OurServiceWidget> with Utils {
   static const carouselHeight = 400.0;
   late CarouselController carouselController;
 
@@ -64,22 +65,23 @@ class _OurServiceWidgetState extends State<OurServiceWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SizedBox(
       key: widget.serviceKey,
-      padding: const EdgeInsets.symmetric(vertical: 60),
       child: Column(
         children: [
-          RichText(
-            text: TextSpan(style: AppTextStyle.extraLarge, children: [
-              TextSpan(text: L10n.of(context).Services),
-              TextSpan(
-                text: '\nTrải nghiệm bất tận tại Ngọt',
-                style: GoogleFonts.allison(),
-              )
-            ]),
-            textAlign: TextAlign.center,
+          Padding(
+            padding: paddingVertical(context),
+            child: RichText(
+              text: TextSpan(style: AppTextStyle.extraLarge, children: [
+                TextSpan(text: L10n.of(context).Services),
+                TextSpan(
+                  text: '\nTrải nghiệm bất tận tại Ngọt',
+                  style: GoogleFonts.allison(),
+                )
+              ]),
+              textAlign: TextAlign.center,
+            ),
           ),
-          const SizedBox(height: 60),
           CarouselSlider.builder(
             carouselController: carouselController,
             itemCount: dummyData.length,

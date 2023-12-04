@@ -107,4 +107,8 @@ mixin Utils {
   bool isSmallLayout(BuildContext context) {
     return screenWidth(context) < 880;
   }
+
+  EdgeInsets paddingVertical(BuildContext context) {
+    return EdgeInsets.symmetric(vertical: isSmallLayout(context) ? 20 : 60);
+  }
 }

@@ -74,9 +74,12 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
             AboutUsWidget(
               aboutKey: aboutKey,
             ),
-            Text(
-              L10n.of(context).Contact,
-              style: AppTextStyle.largeNormalLight,
+            Padding(
+              padding: paddingVertical(context),
+              child: Text(
+                L10n.of(context).Contact,
+                style: AppTextStyle.extraLarge,
+              ),
             ),
             const ContactMapView(),
             ContactInfoWidget(

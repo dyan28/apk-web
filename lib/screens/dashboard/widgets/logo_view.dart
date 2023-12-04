@@ -8,41 +8,36 @@ class LogoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.topCenter,
-      width: 200,
+    return SizedBox(
       height: 80,
-      child: Expanded(
-        child: Row(
-          children: [
-            SizedBox(
-              width: 69,
-              child: Image.asset(
-                Assets.images.spaLogoTransparent.path,
-                color: Colors.white,
-              ),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 69,
+            child: Image.asset(
+              Assets.images.spaLogoTransparent.path,
+              color: Colors.white,
             ),
-            SizedBox(
-              height: double.infinity,
-              child: RichText(
-                text: TextSpan(
-                    style:
-                        AppTextStyle.largeNormal.copyWith(color: Colors.white),
-                    children: [
-                      const TextSpan(
-                          text: 'NGỌT',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 32)),
-                      TextSpan(
-                        text: '\nBeauty & Spa',
-                        style: GoogleFonts.allison(),
-                      )
-                    ]),
-                textAlign: TextAlign.center,
-              ),
+          ),
+          SizedBox(
+            height: double.infinity,
+            child: RichText(
+              text: TextSpan(
+                  style: AppTextStyle.largeNormal.copyWith(color: Colors.white),
+                  children: [
+                    const TextSpan(
+                        text: 'NGỌT',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 32)),
+                    TextSpan(
+                      text: '\nBeauty & Spa',
+                      style: GoogleFonts.allison(),
+                    )
+                  ]),
+              textAlign: TextAlign.center,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
