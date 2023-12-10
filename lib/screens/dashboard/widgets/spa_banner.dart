@@ -51,8 +51,7 @@ class SpaBannerWidget extends StatelessWidget with Utils {
           fit: BoxFit.cover,
         ),
       ),
-      height: MediaQuery.of(context).size.height *
-          (isSmallLayout(context) ? 0.3 : 0.6),
+      height: isSmallLayout(context) ? 250 : 500,
       child: isSmallLayout(context)
           ? _smallLayout(context, introTitle, introContent)
           : _bigLayout(introTitle, introContent),

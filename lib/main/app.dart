@@ -37,7 +37,7 @@ class App extends ConsumerWidget {
     // NotificationUtil.initialize(context);
 
     return MaterialApp.router(
-     // navigatorKey: Constants.navigatorKey,
+      // navigatorKey: Constants.navigatorKey,
       scaffoldMessengerKey: Constants.snackBarKey,
       themeMode: ThemeMode.system,
       theme: ThemeData(
@@ -52,17 +52,18 @@ class App extends ConsumerWidget {
       ),
       locale: L10n.delegate.supportedLocales[1],
       supportedLocales: L10n.delegate.supportedLocales,
-    //  debugShowCheckedModeBanner: false,
-     // initialRoute: Routes.dashboardScreen,
+      //  debugShowCheckedModeBanner: false,
+      // initialRoute: Routes.dashboardScreen,
       routerConfig: Routes.routes,
-      localizationsDelegates: const [L10n.delegate,
+      localizationsDelegates: const [
+        L10n.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-     // navigatorObservers: const [],
+      // navigatorObservers: const [],
       builder: (context, child) {
-        if(child != null) {
+        if (child != null) {
           return child;
         }
         return const SizedBox();
