@@ -8,28 +8,29 @@ class FollowUsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SocialMediaIconWidget(
-            assetGenImage: Assets.socialMediaIcon.icFb,
-            url: AppConstants.fbUrl,
-          ),
-          SocialMediaIconWidget(
-            assetGenImage: Assets.socialMediaIcon.icX,
-            url: AppConstants.twitterUrl,
-          ),
-          SocialMediaIconWidget(
-            assetGenImage: Assets.socialMediaIcon.icInsta,
-            url: AppConstants.instagramUrl,
-          ),
-          SocialMediaIconWidget(
-            assetGenImage: Assets.socialMediaIcon.icYt,
-            url: AppConstants.ytUrl,
-          ),
-        ],
+    return FittedBox(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 32),
+        child: Row(
+          children: [
+            SocialMediaIconWidget(
+              assetGenImage: Assets.socialMediaIcon.icFb,
+              url: AppConstants.fbUrl,
+            ),
+            SocialMediaIconWidget(
+              assetGenImage: Assets.socialMediaIcon.icX,
+              url: AppConstants.twitterUrl,
+            ),
+            SocialMediaIconWidget(
+              assetGenImage: Assets.socialMediaIcon.icInsta,
+              url: AppConstants.instagramUrl,
+            ),
+            SocialMediaIconWidget(
+              assetGenImage: Assets.socialMediaIcon.icYt,
+              url: AppConstants.ytUrl,
+            ),
+          ],
+        ),
       ),
     );
   }

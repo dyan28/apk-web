@@ -13,8 +13,8 @@ class AppConstants {
   static const String videoUrl = 'https://youtu.be/rMO_mCbNgQo';
   static const String locationUrl =
       'https://www.google.com/maps/place/Iris+Garden+Resident/@21.0320327,105.7601469,17z/data=!3m1!4b1!4m6!3m5!1s0x313455f7865aef31:0x8194caab196325c8!8m2!3d21.0320327!4d105.7601469!16s%2Fg%2F11qnstd_yq?entry=ttu';
-  static  const String phoneNumber = '+0923793273';
-  static  const String address = 'info.example@gmail.com';
+  static const String phoneNumber = '0869369588';
+  static const String address = 'info.example@gmail.com';
 
   //dummy data
   static const List<AboutUsModel> dummyAboutModel = <AboutUsModel>[
@@ -52,128 +52,103 @@ class AppConstants {
     BlogModel(
       title: 'Liệu pháp Spa lấy cảm hứng từ đại dương cho ngôi nhà của bạn',
       shortDescription:
-      'Sự lắc lư nhẹ nhàng của đại dương có thể mang lại khung cảnh thư giãn và khoảnh khắc bình yên và chiêm nghiệm rất cần thiết cho bất kỳ ai. Kết hợp điều này với bầu không khí thư giãn và khung cảnh đại dương từ spa và bạn đã sẵn sàng thiết lập lại, phục hồi và phục hồi tâm trí cũng như cơ thể của mình.',
+          'Sự lắc lư nhẹ nhàng của đại dương có thể mang lại khung cảnh thư giãn và khoảnh khắc bình yên và chiêm nghiệm rất cần thiết cho bất kỳ ai. Kết hợp điều này với bầu không khí thư giãn và khung cảnh đại dương từ spa và bạn đã sẵn sàng thiết lập lại, phục hồi và phục hồi tâm trí cũng như cơ thể của mình.',
       image:
-      'https://onespaworld.com/wp-content/uploads/2020/04/iStock-533711860-1124x749.jpg',
+          'https://onespaworld.com/wp-content/uploads/2020/04/iStock-533711860-1124x749.jpg',
       createdDate: DateTime(2023, 5, 5),
     ),
     BlogModel(
       title: 'Một bước quan trọng trong việc thực hành tắm nắng an toàn',
       shortDescription:
-      'Nếu có một thứ bạn nên luôn mang theo trong túi xách mùa hè và sau mùa này thì đó chính là kem chống nắng hoặc kem chống nắng. Không có quy trình chăm sóc da nào được hoàn thiện nếu không có nó.',
+          'Nếu có một thứ bạn nên luôn mang theo trong túi xách mùa hè và sau mùa này thì đó chính là kem chống nắng hoặc kem chống nắng. Không có quy trình chăm sóc da nào được hoàn thiện nếu không có nó.',
       image:
-      'https://onespaworld.com/wp-content/uploads/2020/07/sun2-1124x569.jpg',
+          'https://onespaworld.com/wp-content/uploads/2020/07/sun2-1124x569.jpg',
       createdDate: DateTime(2023, 5, 2),
     ),
     BlogModel(
-      title: 'Những điều cần thiết khi du lịch: Sản phẩm chăm sóc da, chăm sóc cơ thể cho chuyến đi tiếp theo của bạn',
+      title:
+          'Những điều cần thiết khi du lịch: Sản phẩm chăm sóc da, chăm sóc cơ thể cho chuyến đi tiếp theo của bạn',
       shortDescription:
-      'Bất kể chuyến du lịch của bạn có thể đưa bạn đến đâu, khả năng di chuyển nhẹ nhàng có thể giúp bạn tận hưởng kỳ nghỉ của mình. Tuy nhiên, thói quen tự chăm sóc bản thân của bạn sẽ không bị ảnh hưởng - do đó tầm quan trọng của việc chăm sóc da và chăm sóc cơ thể theo quy mô du lịch. Điều quan trọng là bạn phải mang theo những món đồ đa năng, từ quần áo đến sữa rửa mặt hàng ngày.',
+          'Bất kể chuyến du lịch của bạn có thể đưa bạn đến đâu, khả năng di chuyển nhẹ nhàng có thể giúp bạn tận hưởng kỳ nghỉ của mình. Tuy nhiên, thói quen tự chăm sóc bản thân của bạn sẽ không bị ảnh hưởng - do đó tầm quan trọng của việc chăm sóc da và chăm sóc cơ thể theo quy mô du lịch. Điều quan trọng là bạn phải mang theo những món đồ đa năng, từ quần áo đến sữa rửa mặt hàng ngày.',
       image:
-      'https://onespaworld.com/wp-content/uploads/2021/05/cover-1124x562.png',
+          'https://onespaworld.com/wp-content/uploads/2021/05/cover-1124x562.png',
       createdDate: DateTime(2023, 5, 3),
     ),
     BlogModel(
-      title: 'Hãy làm theo những lời khuyên của chuyên gia để có làn da khỏe mạnh vào mùa thu này',
+      title:
+          'Hãy làm theo những lời khuyên của chuyên gia để có làn da khỏe mạnh vào mùa thu này',
       shortDescription:
-      'Với những chiếc lá thay đổi sẽ thay đổi nhu cầu cho làn da của bạn. Nhiệt độ giảm và khí hậu khô hơn có thể khiến làn da của bạn cần thêm một số thứ để luôn khỏe mạnh và tươi sáng trong mùa thu đầy sắc màu này',
+          'Với những chiếc lá thay đổi sẽ thay đổi nhu cầu cho làn da của bạn. Nhiệt độ giảm và khí hậu khô hơn có thể khiến làn da của bạn cần thêm một số thứ để luôn khỏe mạnh và tươi sáng trong mùa thu đầy sắc màu này',
       image:
-      'https://onespaworld.com/wp-content/uploads/2020/10/Fall_Season_Skincare_OneSpaWorld_-1124x562.jpg',
+          'https://onespaworld.com/wp-content/uploads/2020/10/Fall_Season_Skincare_OneSpaWorld_-1124x562.jpg',
       createdDate: DateTime(2023, 5, 4),
     ),
   ];
 
-
   static const List<OpenHourModel> dummyOpenHour = <OpenHourModel>[
     OpenHourModel(
-      dayOfWeek: 1,
-      startHour: 9,
-      startMinute: 0,
-      endHour: 18,
-      endMinute: 0
-    ),
+        dayOfWeek: 1, startHour: 9, startMinute: 0, endHour: 18, endMinute: 0),
     OpenHourModel(
-        dayOfWeek: 2,
-        startHour: 9,
-        startMinute: 0,
-        endHour: 18,
-        endMinute: 0
-    ),
+        dayOfWeek: 2, startHour: 9, startMinute: 0, endHour: 18, endMinute: 0),
     OpenHourModel(
-        dayOfWeek: 3,
-        startHour: 9,
-        startMinute: 0,
-        endHour: 18,
-        endMinute: 0
-    ),
+        dayOfWeek: 3, startHour: 9, startMinute: 0, endHour: 18, endMinute: 0),
     OpenHourModel(
-        dayOfWeek: 4,
-        startHour: 9,
-        startMinute: 0,
-        endHour: 18,
-        endMinute: 0
-    ),
+        dayOfWeek: 4, startHour: 9, startMinute: 0, endHour: 18, endMinute: 0),
     OpenHourModel(
-        dayOfWeek: 5,
-        startHour: 9,
-        startMinute: 0,
-        endHour: 18,
-        endMinute: 0
-    ),
+        dayOfWeek: 5, startHour: 9, startMinute: 0, endHour: 18, endMinute: 0),
     OpenHourModel(
-        dayOfWeek: 6,
-        startHour: 10,
-        startMinute: 0,
-        endHour: 19,
-        endMinute: 0
-    ),
+        dayOfWeek: 6, startHour: 10, startMinute: 0, endHour: 19, endMinute: 0),
     OpenHourModel(
-        dayOfWeek: 7,
-        startHour: 10,
-        startMinute: 0,
-        endHour: 19,
-        endMinute: 0
-    ),
+        dayOfWeek: 7, startHour: 10, startMinute: 0, endHour: 19, endMinute: 0),
   ];
 
-  static const List<ShoppingItemModel> dummyShoppingItemModel = <ShoppingItemModel>[
+  static const List<ShoppingItemModel> dummyShoppingItemModel =
+      <ShoppingItemModel>[
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/c2/38/4a/c73e579e5cdf42e860ce6c2314735a85.png.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/c2/38/4a/c73e579e5cdf42e860ce6c2314735a85.png.webp',
       title: 'Sữa rửa mặt',
       price: 200000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/ab/24/bf/721f33b77f5c9819b15b8998d7e4e12b.jpg.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/ab/24/bf/721f33b77f5c9819b15b8998d7e4e12b.jpg.webp',
       title: 'Sữa rửa mặt 2',
       price: 210000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/b0/80/2f/8e155807a706696d69c1f5dec2ad060b.png.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/b0/80/2f/8e155807a706696d69c1f5dec2ad060b.png.webp',
       title: 'Sữa rửa mặt 3',
       price: 300000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/ac/c6/cb/37303319856d25885bb1a819edf8044a.jpg.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/ac/c6/cb/37303319856d25885bb1a819edf8044a.jpg.webp',
       title: 'Sữa rửa mặt 4',
       price: 440000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/7c/9c/a5/4bd1312c3bcdbe0475df20cffee3c5a6.jpg.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/7c/9c/a5/4bd1312c3bcdbe0475df20cffee3c5a6.jpg.webp',
       title: 'Sữa rửa mặt 5',
       price: 340000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/f8/65/f1/3c515c8213fddc85867b8f7f64f43649.jpg.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/f8/65/f1/3c515c8213fddc85867b8f7f64f43649.jpg.webp',
       title: 'Sữa rửa mặt 6',
       price: 240000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/ba/a9/7e/754277a603cc96b4cb88b65619b0ec86.jpg.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/ba/a9/7e/754277a603cc96b4cb88b65619b0ec86.jpg.webp',
       title: 'Sữa rửa mặt 7',
       price: 420000,
     ),
     ShoppingItemModel(
-      image: 'https://salt.tikicdn.com/cache/280x280/ts/product/a6/bf/f0/012a2bc96689f9e3b3d0344f1009eed5.jpg.webp',
+      image:
+          'https://salt.tikicdn.com/cache/280x280/ts/product/a6/bf/f0/012a2bc96689f9e3b3d0344f1009eed5.jpg.webp',
       title: 'Sữa rửa mặt 8',
       price: 450000,
     ),

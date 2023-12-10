@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:students/components/app_text_style.dart';
 import 'package:students/components/common_drawer.dart';
 import 'package:students/components/reverse_button.dart';
+import 'package:students/generated/l10n.dart';
 import 'package:students/screens/dashboard/widgets/about_us_widget.dart';
 import 'package:students/screens/dashboard/widgets/contact_info_widget.dart';
+import 'package:students/screens/dashboard/widgets/contact_map_view.dart';
 import 'package:students/screens/dashboard/widgets/open_hour_widget.dart';
 import 'package:students/screens/dashboard/widgets/our_service_widget.dart';
 import 'package:students/screens/dashboard/widgets/spa_banner.dart';
-import 'package:students/utils/app_colors.dart';
 import 'package:students/utils/utils.dart';
 
 class DashBoardArg {
@@ -47,14 +49,14 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backGround,
+      backgroundColor: Colors.white,
       drawer: isSmallLayout(context)
           ? CommonDrawer(
               aboutKey: aboutKey,
               contactKey: contactKey,
               serviceKey: serviceKey,
             )
-          : const SizedBox(),
+          : null,
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
@@ -68,10 +70,18 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
             OurServiceWidget(
               serviceKey: serviceKey,
             ),
+            const OpenHourWidget(),
             AboutUsWidget(
               aboutKey: aboutKey,
             ),
-            const OpenHourWidget(),
+            Padding(
+              padding: paddingVertical(context),
+              child: Text(
+                L10n.of(context).Contact,
+                style: AppTextStyle.extraLarge,
+              ),
+            ),
+            const ContactMapView(),
             ContactInfoWidget(
               contactKey: contactKey,
             ),

@@ -1,12 +1,12 @@
-import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:students/components/app_text_style.dart';
 import 'package:students/generated/assets.gen.dart';
-import 'package:students/generated/l10n.dart';
 import 'package:students/screens/dashboard/widgets/follow_us_widget.dart';
+import 'package:students/screens/dashboard/widgets/logo_view.dart';
 import 'package:students/utils/app_constant.dart';
+import 'package:students/utils/utils.dart';
 
-class ContactInfoWidget extends StatelessWidget {
+class ContactInfoWidget extends StatelessWidget with Utils {
   const ContactInfoWidget({super.key, this.contactKey});
 
   final GlobalKey? contactKey;
@@ -25,54 +25,33 @@ class ContactInfoWidget extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.symmetric(vertical: 20),
-      margin: const EdgeInsets.symmetric(vertical: 20).copyWith(bottom: 0),
-      child: Row(
+      child: Column(
         children: [
-          const Spacer(),
-          Expanded(
-            flex: 3,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Image.asset(
-                    Assets.images.spaLogoTransparent.path,
-                    color: Colors.white,
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
+          Row(
+            children: [
+              SizedBox(
+                width: isSmallLayout(context) ? 30 : screenWidth(context) * 0.2,
+              ),
+              const Flexible(child: FittedBox(child: LogoView())),
+              Flexible(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _contact(context),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: _contact(context),
+                      ),
                       const FollowUsWidget(),
-                      _map(context),
-                      const SizedBox(height: 30),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          const Spacer(),
         ],
-      ),
-    );
-  }
-
-  Widget _map(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () {
-          js.context.callMethod('open', [AppConstants.locationUrl]);
-        },
-        child: Container(
-          alignment: Alignment.centerLeft,
-          child: Image.asset(
-            Assets.images.spaLocation.path,
-            height: MediaQuery.of(context).size.height * 0.25,
-          ),
-        ),
       ),
     );
   }
@@ -81,10 +60,6 @@ class ContactInfoWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          L10n.of(context).Contact,
-          style: AppTextStyle.largeNormalLight,
-        ),
         _contactRow(
             text: 'Ngõ 44 P. Nguyễn Cơ Thạch, Mỹ Đình, Từ Liêm, Hà Nội',
             icon: const Icon(Icons.location_on, color: Colors.white)),
@@ -92,7 +67,7 @@ class ContactInfoWidget extends StatelessWidget {
             text: AppConstants.address,
             icon: const Icon(Icons.email, color: Colors.white)),
         _contactRow(
-            text: AppConstants.phoneNumber,
+            text: 'Hotline: ${AppConstants.phoneNumber}',
             icon: const Icon(
               Icons.phone,
               color: Colors.white,
@@ -108,9 +83,11 @@ class ContactInfoWidget extends StatelessWidget {
         children: [
           icon,
           const SizedBox(width: 10),
-          Text(
-            text,
-            style: AppTextStyle.regularLight,
+          Expanded(
+            child: Text(
+              text,
+              style: AppTextStyle.regularLight,
+            ),
           ),
         ],
       ),

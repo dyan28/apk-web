@@ -11,26 +11,25 @@ class OpenHourWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-      ),
       padding: const EdgeInsets.symmetric(vertical: 20),
-      margin: const EdgeInsets.symmetric(vertical: 20).copyWith(bottom: 0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Spacer(),
-          Expanded(
+          Flexible(child: _openStatus(context)),
+          Flexible(
             flex: 3,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _openStatus(context),
                 Expanded(
-                  flex: 3,
+                  flex: 6,
                   child: Column(
                     children: [
-                      _hour(context),
-                      Image.asset(Assets.images.spaMenu.path, fit: BoxFit.cover,)
+                      Image.asset(
+                        Assets.images.servicesPricing.path,
+                        fit: BoxFit.cover,
+                      )
                     ],
                   ),
                 ),
@@ -44,16 +43,16 @@ class OpenHourWidget extends StatelessWidget {
   }
 
   Widget _openStatus(BuildContext context) {
-    return Expanded(
-        child: Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          L10n.of(context).spa_name,
-          style: AppTextStyle.extraLarge.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          L10n.of(context).open_hour,
+          style: AppTextStyle.large,
         ),
+        _hourRow(title: L10n.of(context).mon_to_fri, content: '09 am- 7pm'),
+        _hourRow(title: L10n.of(context).sat, content: '10 am- 21pm'),
+        _hourRow(title: L10n.of(context).sunday, content: '10 am- 21pm'),
         const SizedBox(height: 16),
         Row(
           children: [
@@ -74,22 +73,6 @@ class OpenHourWidget extends StatelessWidget {
             ),
           ],
         ),
-
-      ],
-    ));
-  }
-
-  Widget _hour(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          L10n.of(context).open_hour,
-          style: AppTextStyle.large,
-        ),
-        _hourRow(title: L10n.of(context).mon_to_fri, content: '09 am- 6pm'),
-        _hourRow(title: L10n.of(context).sat, content: '10 am- 7pm'),
-        _hourRow(title: L10n.of(context).sunday, content: '10 am- 7pm'),
       ],
     );
   }
@@ -101,7 +84,7 @@ class OpenHourWidget extends StatelessWidget {
         children: [
           Expanded(
               child: Text(
-            '$title - ',
+            '$title: ',
             style: AppTextStyle.regular,
           )),
           Expanded(

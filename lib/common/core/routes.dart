@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:students/screens/about_us/about_us_screen.dart';
+import 'package:students/screens/admin/admin_screen.dart';
 import 'package:students/screens/blog/blog_screen.dart';
 import 'package:students/screens/booking/booking_screen.dart';
-
 import 'package:students/screens/dashboard/dashboard_screen.dart';
 import 'package:students/screens/shopping/shopping_screen.dart';
 
@@ -15,8 +15,9 @@ class Routes {
   static const bookingScreen = 'booking_screen';
   static const blogScreen = 'blog_screen';
   static const shoppingScreen = 'shopping_screen';
+  static const admin = 'admin';
 
-  static final GoRouter routes =  GoRouter(
+  static final GoRouter routes = GoRouter(
     routes: <RouteBase>[
       GoRoute(
         path: '/',
@@ -52,6 +53,12 @@ class Routes {
             path: shoppingScreen,
             builder: (BuildContext context, GoRouterState state) {
               return const ShoppingScreen();
+            },
+          ),
+          GoRoute(
+            path: admin,
+            builder: (BuildContext context, GoRouterState state) {
+              return const AdminScreen();
             },
           ),
         ],
