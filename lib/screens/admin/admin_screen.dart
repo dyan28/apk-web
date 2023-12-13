@@ -8,7 +8,7 @@ class AdminScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
+          const SliverAppBar(
             title: Text('Floating Button Example'),
             floating: true,
             snap: true,
@@ -32,7 +32,7 @@ class AdminScreen extends StatelessWidget {
           // Add your button click logic here
           print('Floating Button Clicked!');
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
