@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:students/components/app_text_style.dart';
 import 'package:students/components/common_drawer.dart';
 import 'package:students/components/reverse_button.dart';
+import 'package:students/components/top_game_circle.dart';
 import 'package:students/generated/l10n.dart';
 
 import 'package:students/utils/app_colors.dart';
@@ -154,25 +155,23 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
             SizedBox(
               height: 150,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                ),
-                SizedBox(width: 80),
-                Transform.translate(
-                  offset: Offset(0, -80),
-                  child: CircleAvatar(
-                    radius: 50,
+            SizedBox(
+              height: 200,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TopGameCircle(),
+                  SizedBox(width: 80),
+                  Transform.translate(
+                    offset: Offset(0, -80),
+                    child: TopGameCircle(),
                   ),
-                ),
-                SizedBox(width: 80),
-                CircleAvatar(
-                  radius: 50,
-                ),
-              ],
-            )
+                  SizedBox(width: 80),
+                  TopGameCircle()
+                ],
+              ),
+            ),
           ],
         ),
       ),
