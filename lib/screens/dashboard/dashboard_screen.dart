@@ -4,12 +4,7 @@ import 'package:students/components/app_text_style.dart';
 import 'package:students/components/common_drawer.dart';
 import 'package:students/components/reverse_button.dart';
 import 'package:students/generated/l10n.dart';
-import 'package:students/screens/dashboard/widgets/about_us_widget.dart';
-import 'package:students/screens/dashboard/widgets/contact_info_widget.dart';
-import 'package:students/screens/dashboard/widgets/contact_map_view.dart';
-import 'package:students/screens/dashboard/widgets/open_hour_widget.dart';
-import 'package:students/screens/dashboard/widgets/our_service_widget.dart';
-import 'package:students/screens/dashboard/widgets/spa_banner.dart';
+
 import 'package:students/utils/app_colors.dart';
 import 'package:students/utils/utils.dart';
 
@@ -137,6 +132,46 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
                   children: [Icon(Icons.search), Text("Search...")],
                 ),
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Divider(
+                  color: Colors.red,
+                  thickness: 2,
+                  height: 3,
+                ),
+                Text(
+                  'Popular APK on ApkFyp',
+                  style: AppTextStyle.large,
+                ),
+                Divider(
+                  color: Colors.grey,
+                  thickness: 2,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 150,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                ),
+                SizedBox(width: 80),
+                Transform.translate(
+                  offset: Offset(0, -80),
+                  child: CircleAvatar(
+                    radius: 50,
+                  ),
+                ),
+                SizedBox(width: 80),
+                CircleAvatar(
+                  radius: 50,
+                ),
+              ],
             )
           ],
         ),

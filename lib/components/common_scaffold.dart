@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:students/components/reverse_button.dart';
 import 'package:students/generated/assets.gen.dart';
-import 'package:students/screens/dashboard/widgets/common_header.dart';
-import 'package:students/screens/dashboard/widgets/contact_info_widget.dart';
 import 'package:students/utils/app_colors.dart';
 
 class CommonScaffold extends StatefulWidget {
@@ -29,7 +27,7 @@ class _CommonScaffoldState extends State<CommonScaffold> {
         backgroundColor: AppColors.backGround,
         body: Column(
           children: [
-            const CommonHeader(),
+          
             Expanded(
               child: SingleChildScrollView(
                 controller: widget.scrollController,
@@ -54,7 +52,7 @@ class _CommonScaffoldState extends State<CommonScaffold> {
                         ),
                       ],
                     ),
-                    const ContactInfoWidget(),
+                    const SizedBox(),
                   ],
                 ),
               ),
