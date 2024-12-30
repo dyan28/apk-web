@@ -10,6 +10,7 @@ import 'package:students/screens/dashboard/widgets/contact_map_view.dart';
 import 'package:students/screens/dashboard/widgets/open_hour_widget.dart';
 import 'package:students/screens/dashboard/widgets/our_service_widget.dart';
 import 'package:students/screens/dashboard/widgets/spa_banner.dart';
+import 'package:students/utils/app_colors.dart';
 import 'package:students/utils/utils.dart';
 
 class DashBoardArg {
@@ -28,8 +29,9 @@ class DashBoardScreen extends ConsumerStatefulWidget {
 }
 
 class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
-    with TickerProviderStateMixin, Utils, WidgetsBindingObserver {
+    with SingleTickerProviderStateMixin, Utils, WidgetsBindingObserver {
   late ScrollController _scrollController;
+  late TabController tabController;
   var serviceKey = GlobalKey();
   var aboutKey = GlobalKey();
   var contactKey = GlobalKey();
@@ -37,6 +39,7 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
   @override
   void initState() {
     super.initState();
+    tabController = TabController(length: 3, vsync: this);
     _scrollController = ScrollController();
   }
 
@@ -57,38 +60,87 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
               serviceKey: serviceKey,
             )
           : null,
+      appBar: AppBar(
+        toolbarHeight: 100,
+        backgroundColor: AppColors.successColor,
+        leading: Container(
+          width: 200,
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            "APK",
+            style: AppTextStyle.large.copyWith(
+              fontSize: 50,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        leadingWidth: 400,
+        title: SizedBox(
+          width: 300,
+          height: 100,
+          child: TabBar(
+            controller: tabController,
+            labelColor: Colors.white,
+            tabs: [
+              Tab(
+                text: "Home",
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.indigo.shade500,
+                ),
+              ),
+              Tab(
+                text: "Games",
+                icon: Icon(
+                  Icons.gamepad,
+                  color: Colors.indigo.shade500,
+                ),
+              ),
+              Tab(
+                text: "Apps",
+                icon: Icon(
+                  Icons.apps,
+                  color: Colors.indigo.shade500,
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 60),
+            child: Icon(
+              Icons.search,
+              size: 40,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           children: [
-            SpaBannerWidget(
-              scrollController: _scrollController,
-              aboutKey: aboutKey,
-              contactKey: contactKey,
-              serviceKey: serviceKey,
-            ),
-            OurServiceWidget(
-              serviceKey: serviceKey,
-            ),
-            const OpenHourWidget(),
-            AboutUsWidget(
-              aboutKey: aboutKey,
-            ),
             Padding(
-              padding: paddingVertical(context),
-              child: Text(
-                L10n.of(context).Contact,
-                style: AppTextStyle.extraLarge,
+              padding: const EdgeInsets.all(16),
+              child: Container(
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    width: 2,
+                    color: Colors.grey,
+                  ),
+                ),
+                child: Row(
+                  children: [Icon(Icons.search), Text("Search...")],
+                ),
               ),
-            ),
-            const ContactMapView(),
-            ContactInfoWidget(
-              contactKey: contactKey,
-            ),
+            )
           ],
         ),
       ),
-      floatingActionButton: const ReverseButton(),
     );
   }
 }

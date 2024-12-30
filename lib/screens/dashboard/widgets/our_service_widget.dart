@@ -22,7 +22,7 @@ class OurServiceWidget extends StatefulWidget {
 
 class _OurServiceWidgetState extends State<OurServiceWidget> with Utils {
   static const carouselHeight = 400.0;
-  late CarouselController carouselController;
+  late CarouselSliderController carouselController;
 
   List<ServiceModel> dummyData = <ServiceModel>[
     ServiceModel(
@@ -60,7 +60,7 @@ class _OurServiceWidgetState extends State<OurServiceWidget> with Utils {
   @override
   void initState() {
     super.initState();
-    carouselController = CarouselController();
+    carouselController = CarouselSliderController();
   }
 
   @override
@@ -89,7 +89,7 @@ class _OurServiceWidgetState extends State<OurServiceWidget> with Utils {
               return CarouselItemWidget(
                 serviceModel: dummyData.elementAt(index),
                 carouselHeight: carouselHeight,
-                carouselController: carouselController,
+                carouselController: CarouselController(),
               );
             },
             options: CarouselOptions(

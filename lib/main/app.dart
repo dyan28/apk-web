@@ -52,7 +52,7 @@ class App extends ConsumerWidget {
       ),
       locale: L10n.delegate.supportedLocales[1],
       supportedLocales: L10n.delegate.supportedLocales,
-      //  debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       // initialRoute: Routes.dashboardScreen,
       routerConfig: Routes.routes,
       localizationsDelegates: const [

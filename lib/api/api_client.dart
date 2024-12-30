@@ -269,7 +269,7 @@ class ApiClient extends StateNotifier<EnvState> {
     final url = httpResponse.request?.url.toString();
     final body = httpResponse.body;
 
-    logger.v(json.decode(body), 'Response │ Status: $statusCode\n$url');
+    logger.v(json.decode(body), error: 'Response │ Status: $statusCode\n$url');
 
     switch (statusCode) {
       case 200:
@@ -382,10 +382,10 @@ class ApiClient extends StateNotifier<EnvState> {
     logger
       ..i(
         url,
-        'Request │ $type',
+        error: 'Request │ $type',
       )
-      ..i(headers, 'Headers')
-      ..i(params, 'Request Parameters');
+      ..i(headers, error: 'Headers')
+      ..i(params, error: 'Request Parameters');
   }
 
   void setEnvState(String privacyUrl, String termOfServiceUrl) {

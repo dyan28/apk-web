@@ -154,7 +154,7 @@ class ShowSimpleDialog with Utils {
   }
 
   static Future<dynamic> showBottomSheetCustom(BuildContext context) async {
-    final result = showBottomSheet<dynamic>(
+    final result = showBottomSheet(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(20),
