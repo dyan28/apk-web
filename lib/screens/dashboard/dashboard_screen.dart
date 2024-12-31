@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:students/components/app_text_style.dart';
 import 'package:students/components/common_drawer.dart';
+import 'package:students/components/game_item.dart';
 import 'package:students/components/reverse_button.dart';
 import 'package:students/components/top_game_circle.dart';
 import 'package:students/generated/l10n.dart';
@@ -156,7 +157,6 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
               height: 150,
             ),
             SizedBox(
-              height: 200,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -171,6 +171,26 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
                   TopGameCircle()
                 ],
               ),
+            ),
+            SizedBox(
+              height: 150,
+            ),
+            Text(
+              'Latest APK on ApkFyp',
+              style: AppTextStyle.large,
+            ),
+            GridView.count(
+              padding: const EdgeInsets.all(20).copyWith(top: 50),
+              crossAxisCount: 3,
+              childAspectRatio: 5,
+              shrinkWrap: true,
+
+              // padding: const EdgeInsets.all(4.0),
+              mainAxisSpacing: 30,
+              crossAxisSpacing: 30,
+              children: List.generate(8, (index) {
+                return GameItem();
+              }).toList(),
             ),
           ],
         ),

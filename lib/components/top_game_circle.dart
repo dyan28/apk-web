@@ -22,10 +22,10 @@ class TopGameCircle extends StatelessWidget {
           ),
           Positioned(
             bottom: 4,
-            left: 30,
+            left: 35,
             child: Container(
-              height: 40,
-              width: 40,
+              height: 30,
+              width: 30,
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(90),
@@ -37,7 +37,7 @@ class TopGameCircle extends StatelessWidget {
                   child: Text(
                     '1',
                     style: AppTextStyle.medium
-                        .copyWith(color: Colors.white, fontSize: 30),
+                        .copyWith(color: Colors.white, fontSize: 25),
                   ),
                 ),
               ),
