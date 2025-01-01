@@ -36,4 +36,6 @@ class AppColors {
   static const titleHighlightColor = Color(0xFF7D2410);
   static const successColor = Color(0xFF4BB543);
   static const errorColor = Color(0xFFff3333);
+  static const contentColor = Color(0xFFBBDEFB);
+  static const materialColor = Color(0xFF2196F3);
 }

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:students/components/app_text_style.dart';
 import 'package:students/components/common_drawer.dart';
+import 'package:students/components/footer_item.dart';
 import 'package:students/components/game_item.dart';
 import 'package:students/components/reverse_button.dart';
 import 'package:students/components/top_game_circle.dart';
 import 'package:students/generated/l10n.dart';
+import 'package:students/screens/dashboard/dashboard_state_notifier.dart';
 
 import 'package:students/utils/app_colors.dart';
 import 'package:students/utils/utils.dart';
@@ -48,6 +50,8 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(dashboardNotifierProvider);
+    final notifier = ref.read(dashboardNotifierProvider.notifier);
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: isSmallLayout(context)
@@ -59,7 +63,7 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
           : null,
       appBar: AppBar(
         toolbarHeight: 100,
-        backgroundColor: AppColors.successColor,
+        backgroundColor: AppColors.materialColor,
         leading: Container(
           width: 200,
           padding: const EdgeInsets.only(top: 8),
@@ -77,28 +81,33 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
           height: 100,
           child: TabBar(
             controller: tabController,
+            onTap: (index) {
+              notifier.updateViewAndDashboardIndex(
+                  tabController: tabController, indexTab: index);
+            },
             labelColor: Colors.white,
+            labelStyle: AppTextStyle.medium,
             tabs: [
               Tab(
                 text: "Home",
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.indigo.shade500,
-                ),
+                icon: Icon(Icons.home,
+                    color: state.indexTab == 0
+                        ? Colors.white
+                        : Colors.indigo.shade500),
               ),
               Tab(
                 text: "Games",
-                icon: Icon(
-                  Icons.gamepad,
-                  color: Colors.indigo.shade500,
-                ),
+                icon: Icon(Icons.gamepad,
+                    color: state.indexTab == 1
+                        ? Colors.white
+                        : Colors.indigo.shade500),
               ),
               Tab(
                 text: "Apps",
-                icon: Icon(
-                  Icons.apps,
-                  color: Colors.indigo.shade500,
-                ),
+                icon: Icon(Icons.apps,
+                    color: state.indexTab == 2
+                        ? Colors.white
+                        : Colors.indigo.shade500),
               ),
             ],
           ),
@@ -118,40 +127,53 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
         controller: _scrollController,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    width: 2,
-                    color: Colors.grey,
-                  ),
-                ),
-                child: Row(
-                  children: [Icon(Icons.search), Text("Search...")],
+            Container(
+              height: 50,
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 36),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  width: 2,
+                  color: AppColors.contentColor,
                 ),
               ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.search),
+                  ),
+                  Text(
+                    "Search...",
+                    style: AppTextStyle.medium,
+                  )
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Divider(
-                  color: Colors.red,
-                  thickness: 2,
-                  height: 3,
-                ),
-                Text(
-                  'Popular APK on ApkFyp',
-                  style: AppTextStyle.large,
-                ),
-                Divider(
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                      child: Divider(
+                    thickness: 3,
+                    color: AppColors.contentColor,
+                  )),
+                  SizedBox(width: 8),
+                  Text(
+                    'Popular APK on ApkFyp',
+                    style: AppTextStyle.large,
+                  ),
+                  SizedBox(width: 8),
+                  Expanded(
+                      child: Divider(
+                    thickness: 3,
+                    color: AppColors.contentColor,
+                  )),
+                ],
+              ),
             ),
             SizedBox(
               height: 150,
@@ -161,23 +183,21 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  TopGameCircle(),
+                  TopGameCircle(
+                    topNumber: '2',
+                    imageUrl: 'https://robohash.org/top/2',
+                  ),
                   SizedBox(width: 80),
                   Transform.translate(
                     offset: Offset(0, -80),
-                    child: TopGameCircle(),
+                    child: TopGameCircle(
+                        topNumber: '1', imageUrl: 'https://robohash.org/top/1'),
                   ),
                   SizedBox(width: 80),
-                  TopGameCircle()
+                  TopGameCircle(
+                      topNumber: '3', imageUrl: 'https://robohash.org/top/3')
                 ],
               ),
-            ),
-            SizedBox(
-              height: 150,
-            ),
-            Text(
-              'Latest APK on ApkFyp',
-              style: AppTextStyle.large,
             ),
             GridView.count(
               padding: const EdgeInsets.all(20).copyWith(top: 50),
@@ -189,9 +209,194 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen>
               mainAxisSpacing: 30,
               crossAxisSpacing: 30,
               children: List.generate(8, (index) {
-                return GameItem();
+                return GameItem(
+                  bgColor: true,
+                  showBorder: false,
+                );
               }).toList(),
             ),
+            SizedBox(
+              height: 80,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                      child: Divider(
+                    thickness: 3,
+                    color: AppColors.contentColor,
+                  )),
+                  SizedBox(width: 8),
+                  Text(
+                    'Latest APK on ApkFyp',
+                    style: AppTextStyle.large,
+                  ),
+                  SizedBox(width: 8),
+                  Expanded(
+                      child: Divider(
+                    thickness: 3,
+                    color: AppColors.contentColor,
+                  )),
+                ],
+              ),
+            ),
+            GridView.count(
+              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+              crossAxisCount: 3,
+              childAspectRatio: 5,
+              shrinkWrap: true,
+
+              // padding: const EdgeInsets.all(4.0),
+              mainAxisSpacing: 30,
+              crossAxisSpacing: 30,
+              children: List.generate(24, (index) {
+                return GameItem(
+                  showBorder: true,
+                );
+              }).toList(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(6, (index) {
+                  if (index == 3) {
+                    return Text('...');
+                  }
+                  return Container(
+                    height: 30,
+                    width: 30,
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: index == 0 ? AppColors.contentColor : null,
+                      border: Border.all(width: 1, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Center(
+                        child: index == 5
+                            ? Icon(Icons.arrow_forward_ios)
+                            : Text(
+                                index == 4 ? '23' : '${index + 1}',
+                                style: AppTextStyle.medium,
+                              )),
+                  );
+                }).toList(),
+              ),
+            ),
+            SizedBox(height: 80),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'New Update Games',
+                    style: AppTextStyle.medium.copyWith(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.materialColor,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                        color: AppColors.materialColor,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'All Games',
+                          style:
+                              AppTextStyle.medium.copyWith(color: Colors.white),
+                        ),
+                        SizedBox(width: 8),
+                        Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 16,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 24),
+            GridView.count(
+              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+              crossAxisCount: 3,
+              childAspectRatio: 5,
+              shrinkWrap: true,
+
+              // padding: const EdgeInsets.all(4.0),
+              mainAxisSpacing: 30,
+              crossAxisSpacing: 30,
+              children: List.generate(9, (index) {
+                return GameItem(
+                  showBorder: true,
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'New Update Apps',
+                    style: AppTextStyle.medium.copyWith(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.materialColor,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                        color: AppColors.materialColor,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'All Apps',
+                          style:
+                              AppTextStyle.medium.copyWith(color: Colors.white),
+                        ),
+                        SizedBox(width: 8),
+                        Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 16,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 24),
+            GridView.count(
+              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+              crossAxisCount: 3,
+              childAspectRatio: 5,
+              shrinkWrap: true,
+
+              // padding: const EdgeInsets.all(4.0),
+              mainAxisSpacing: 30,
+              crossAxisSpacing: 30,
+              children: List.generate(9, (index) {
+                return GameItem(
+                  showBorder: true,
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 24),
+            FooterItem()
           ],
         ),
       ),
