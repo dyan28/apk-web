@@ -3,17 +3,17 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:students/api/api_endpoints.dart';
-import 'package:students/api/api_response/api_response.dart';
-import 'package:students/common/core/constants.dart';
-import 'package:students/common/data/local_secure_storage.dart';
-import 'package:students/env/env_state.dart';
+import 'package:apkfree/api/api_endpoints.dart';
+import 'package:apkfree/api/api_response/api_response.dart';
+import 'package:apkfree/common/core/constants.dart';
+import 'package:apkfree/common/data/local_secure_storage.dart';
+import 'package:apkfree/env/env_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:students/main/app.dart';
-import 'package:students/utils/dialog.dart';
-import 'package:students/utils/logger.dart';
-import 'package:students/utils/utils.dart';
+import 'package:apkfree/main/app.dart';
+import 'package:apkfree/utils/dialog.dart';
+import 'package:apkfree/utils/logger.dart';
+import 'package:apkfree/utils/utils.dart';
 
 import 'api_exceptions.dart';
 

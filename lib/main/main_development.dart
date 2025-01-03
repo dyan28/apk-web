@@ -1,8 +1,9 @@
-import 'package:students/env/env_state.dart';
-
+import 'package:apkfree/env/env_state.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'app.dart';
 
 Future<void> main() async {
+  setUrlStrategy(PathUrlStrategy());
   setupAndRunApp(env: EnvValue.development);
 }
 // void main() {

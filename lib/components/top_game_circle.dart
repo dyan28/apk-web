@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
+import 'package:apkfree/components/app_text_style.dart';
 
 class TopGameCircle extends StatelessWidget {
   const TopGameCircle({super.key, this.topNumber, this.imageUrl});

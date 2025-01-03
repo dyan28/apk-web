@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
+import 'package:apkfree/components/app_text_style.dart';
 
 enum RequiredType {
   required,
@@ -41,8 +41,7 @@ class FormInputField extends StatelessWidget {
         children: [
           Text(
             label ?? '',
-            style: labelStyle ??
-                AppTextStyle.regular,
+            style: labelStyle ?? AppTextStyle.regular,
           ),
           const SizedBox(
             width: 10,
@@ -52,8 +51,7 @@ class FormInputField extends StatelessWidget {
     }
     return Text(
       label ?? '',
-      style: labelStyle ??
-          AppTextStyle.regular,
+      style: labelStyle ?? AppTextStyle.regular,
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
-import 'package:students/utils/app_colors.dart';
+import 'package:apkfree/components/app_text_style.dart';
+import 'package:apkfree/utils/app_colors.dart';
 
 class TextFormFieldCustom extends StatelessWidget {
   const TextFormFieldCustom({

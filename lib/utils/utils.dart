@@ -4,7 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:students/common/core/constants.dart';
+import 'package:apkfree/common/core/constants.dart';
 
 class Util {
   Util._();
@@ -35,7 +35,7 @@ mixin Utils {
   static final navigatorState = Constants.navigatorKey.currentState;
 
   // Get size safe area for screen
-  EdgeInsets get sizeSafeArea => MediaQueryData.fromWindow(ui.window).padding;
+  EdgeInsets get sizeSafeArea => MediaQueryData.fromView(ui.window).padding;
 
   // Check device has notch or not
   bool get hasNotch => sizeSafeArea.bottom > 0;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
-import 'package:students/utils/app_colors.dart';
+import 'package:apkfree/components/app_text_style.dart';
+import 'package:apkfree/utils/app_colors.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
@@ -36,7 +36,8 @@ class CommonButton extends StatelessWidget {
           onPressed: onTap,
           child: Text(
             label ?? '',
-            style: titleTextStyle ?? AppTextStyle.medium.copyWith(color: AppColors.white),
+            style: titleTextStyle ??
+                AppTextStyle.medium.copyWith(color: AppColors.white),
           ),
         ),
       ),

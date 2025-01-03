@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
-import 'package:students/utils/app_constant.dart';
+import 'package:apkfree/components/app_text_style.dart';
+import 'package:apkfree/utils/app_constant.dart';
 
 class AboutUsListView extends StatefulWidget {
   const AboutUsListView({super.key});

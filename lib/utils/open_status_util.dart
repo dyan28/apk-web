@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:students/generated/l10n.dart';
-import 'package:students/utils/app_colors.dart';
-import 'package:students/utils/app_constant.dart';
+import 'package:apkfree/generated/l10n.dart';
+import 'package:apkfree/utils/app_colors.dart';
+import 'package:apkfree/utils/app_constant.dart';
 import 'package:collection/collection.dart';
-import 'package:students/utils/enums.dart';
+import 'package:apkfree/utils/enums.dart';
 
 class OpenStatusUtil {
   static OpenStatus getStatus() {

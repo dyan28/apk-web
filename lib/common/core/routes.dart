@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:students/screens/about_us/about_us_screen.dart';
-import 'package:students/screens/admin/admin_screen.dart';
-import 'package:students/screens/blog/blog_screen.dart';
+import 'package:apkfree/components/app_text_style.dart';
+import 'package:apkfree/components/base_scaffold.dart';
+import 'package:apkfree/screens/about_us/about_us_screen.dart';
+import 'package:apkfree/screens/admin/admin_screen.dart';
+import 'package:apkfree/screens/blog/blog_screen.dart';
 
-import 'package:students/screens/dashboard/dashboard_screen.dart';
-import 'package:students/screens/detail/detail_screen.dart';
-
+import 'package:apkfree/screens/dashboard/dashboard_screen.dart';
+import 'package:apkfree/screens/detail/detail_screen.dart';
+import 'package:apkfree/utils/app_colors.dart';
 
 /// The Routes class contains static constants and a map of named routes to widget builders for
 /// navigation in a Flutter app.
@@ -18,49 +20,100 @@ class Routes {
   static const shoppingScreen = 'shopping_screen';
   static const admin = 'admin';
   static const gameDetail = '';
-
+  static const games = 'games';
+  static const apps = 'apps';
+  final _rootNavigatorKey = GlobalKey<NavigatorState>();
+  final _shellNavigatorKey = GlobalKey<NavigatorState>();
   static final GoRouter routes = GoRouter(
     routes: <RouteBase>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          return const DashBoardScreen();
-        },
+      ShellRoute(
+        builder: (context, state, child) => BaseScaffold(child: child),
         routes: <RouteBase>[
           GoRoute(
-            path: dashboardScreen,
+            path: '/',
             builder: (BuildContext context, GoRouterState state) {
-              return const DashBoardScreen();
+              return DashBoardScreen();
             },
-          ),
-          GoRoute(
-            path: aboutUsScreen,
-            builder: (BuildContext context, GoRouterState state) {
-              return const AboutUsScreen();
-            },
-          ),
-          GoRoute(
-            path: '/:title',
-            builder: (BuildContext context, GoRouterState state) {
-              final gameId = int.tryParse(state.pathParameters['title']!);
-              return const DetailScreen();
-            },
-          ),
-          GoRoute(
-            path: blogScreen,
-            builder: (BuildContext context, GoRouterState state) {
-              return const BlogScreen();
-            },
-          ),
-        
-          GoRoute(
-            path: admin,
-            builder: (BuildContext context, GoRouterState state) {
-              return const AdminScreen();
-            },
+            routes: [
+              GoRoute(
+                path: games,
+                builder: (BuildContext context, GoRouterState state) {
+                  return Container(
+                    child: Center(
+                      child: Text("GAMES"),
+                    ),
+                  );
+                },
+              ),
+              GoRoute(
+                path: '/:title',
+                builder: (BuildContext context, GoRouterState state) {
+                  final gameId = state.pathParameters['title'];
+                  print("IDDDDD: $gameId");
+                  return const DetailScreen();
+                },
+              ),
+              GoRoute(
+                path: apps,
+                builder: (BuildContext context, GoRouterState state) {
+                  return Container(
+                    child: Center(
+                      child: Text("APPS"),
+                    ),
+                  );
+                },
+              ),
+              GoRoute(
+                path: admin,
+                builder: (BuildContext context, GoRouterState state) {
+                  return const AdminScreen();
+                },
+              ),
+            ],
           ),
         ],
-      ),
+      )
+
+      // GoRoute(
+      //   path: '/',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return const DashBoardScreen();
+      //   },
+      //   routes: <RouteBase>[
+      //     GoRoute(
+      //       path: dashboardScreen,
+      //       builder: (BuildContext context, GoRouterState state) {
+      //         return const DashBoardScreen();
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: aboutUsScreen,
+      //       builder: (BuildContext context, GoRouterState state) {
+      //         return const AboutUsScreen();
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: '/:title',
+      //       builder: (BuildContext context, GoRouterState state) {
+      //         final gameId = state.pathParameters['title'];
+      //         print("IDDDDD: $gameId");
+      //         return const DetailScreen();
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: blogScreen,
+      //       builder: (BuildContext context, GoRouterState state) {
+      //         return const BlogScreen();
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: admin,
+      //       builder: (BuildContext context, GoRouterState state) {
+      //         return const AdminScreen();
+      //       },
+      //     ),
+      //   ],
+      // ),
     ],
   );
 

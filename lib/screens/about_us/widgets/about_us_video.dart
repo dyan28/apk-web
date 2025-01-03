@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students/generated/assets.gen.dart';
+import 'package:apkfree/generated/assets.gen.dart';
 import 'package:video_player/video_player.dart';
 
 class AboutUsVideo extends StatefulWidget {
@@ -31,7 +31,6 @@ class _AboutUsVideoState extends State<AboutUsVideo> {
     return _controller.value.isInitialized
         ? Container(
             height: MediaQuery.of(context).size.height * 0.5,
-
             padding: const EdgeInsets.all(20),
             child: AspectRatio(
               aspectRatio: _controller.value.aspectRatio,

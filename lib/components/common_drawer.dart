@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:students/common/core/routes.dart';
-import 'package:students/components/common_navigator.dart';
-import 'package:students/generated/assets.gen.dart';
-import 'package:students/generated/l10n.dart';
+import 'package:apkfree/common/core/routes.dart';
+import 'package:apkfree/components/common_navigator.dart';
+import 'package:apkfree/generated/assets.gen.dart';
+import 'package:apkfree/generated/l10n.dart';
 
 class CommonDrawer extends StatelessWidget {
   const CommonDrawer({

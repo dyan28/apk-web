@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:students/models/app_user.dart';
+import 'package:apkfree/models/app_user.dart';
 
 class LogInData {
   final String? token;

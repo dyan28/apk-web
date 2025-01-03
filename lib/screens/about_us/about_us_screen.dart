@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
-import 'package:students/components/common_scaffold.dart';
-import 'package:students/generated/l10n.dart';
-import 'package:students/screens/about_us/widgets/about_us_list_view.dart';
-import 'package:students/screens/about_us/widgets/about_us_video.dart';
+import 'package:apkfree/components/app_text_style.dart';
+import 'package:apkfree/components/common_scaffold.dart';
+import 'package:apkfree/generated/l10n.dart';
+import 'package:apkfree/screens/about_us/widgets/about_us_list_view.dart';
+import 'package:apkfree/screens/about_us/widgets/about_us_video.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});

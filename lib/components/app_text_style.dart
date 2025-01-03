@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students/generated/fonts.gen.dart';
+import 'package:apkfree/generated/fonts.gen.dart';
 
 class AppTextStyle {
   static const regular = TextStyle(

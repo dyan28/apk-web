@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:students/screens/dashboard/dashboard_state.dart';
+import 'package:apkfree/screens/dashboard/dashboard_state.dart';
 
 final dashboardNotifierProvider =
     StateNotifierProvider<DashboardStateNotifier, DashboardState>((ref) {

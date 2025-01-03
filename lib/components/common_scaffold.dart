@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:students/components/reverse_button.dart';
-import 'package:students/generated/assets.gen.dart';
-import 'package:students/utils/app_colors.dart';
+import 'package:apkfree/components/reverse_button.dart';
+import 'package:apkfree/generated/assets.gen.dart';
+import 'package:apkfree/utils/app_colors.dart';
 
 class CommonScaffold extends StatefulWidget {
   const CommonScaffold({
@@ -27,7 +27,6 @@ class _CommonScaffoldState extends State<CommonScaffold> {
         backgroundColor: AppColors.backGround,
         body: Column(
           children: [
-          
             Expanded(
               child: SingleChildScrollView(
                 controller: widget.scrollController,

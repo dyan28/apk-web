@@ -1,7 +1,7 @@
-import 'package:students/models/about_us_model/about_us_model.dart';
-import 'package:students/models/blog_model/blog_model.dart';
-import 'package:students/models/open_hour_model/open_hour_model.dart';
-import 'package:students/models/shopping_item_model/shopping_item_model.dart';
+import 'package:apkfree/models/about_us_model/about_us_model.dart';
+import 'package:apkfree/models/blog_model/blog_model.dart';
+import 'package:apkfree/models/open_hour_model/open_hour_model.dart';
+import 'package:apkfree/models/shopping_item_model/shopping_item_model.dart';
 
 class AppConstants {
   static const String fbUrl = 'https://www.facebook.com/amandestinations';

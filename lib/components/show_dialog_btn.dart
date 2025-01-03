@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:students/components/app_text_style.dart';
-import 'package:students/utils/app_colors.dart';
+import 'package:apkfree/components/app_text_style.dart';
+import 'package:apkfree/utils/app_colors.dart';
 
 class ShowDialogBtn extends StatelessWidget {
   const ShowDialogBtn({
@@ -21,7 +21,10 @@ class ShowDialogBtn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title.isNotEmpty) ...[
-          Text(title, style: AppTextStyle.medium,),
+          Text(
+            title,
+            style: AppTextStyle.medium,
+          ),
           const SizedBox(height: 10),
         ],
         InkWell(
